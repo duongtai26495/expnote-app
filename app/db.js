@@ -17,8 +17,6 @@ connection.connect((error)=>{
     if(error){
         console.error("Error connection: ", error)
         return
-    }else{
-        console.log("Connected")
     }
 })
 

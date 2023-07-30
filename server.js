@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
-const userRouter = require('./routes/users')
-const postRouter = require('./routes/posts')
+const userRouter = require('./routes/user/user')
+const postRouter = require('./routes/posts/posts')
 const connection = require('./app/db')
-
+const port = 3000
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
@@ -22,7 +22,9 @@ app.get("/", (req, res) => {
 })
 
 
-app.use('/users', userRouter)
+app.use('/user', userRouter)
 app.use('/posts', postRouter)
 
-app.listen(3000)
+app.listen(port, ()=>{
+    console.log(`An access to ${port}`)
+}) 

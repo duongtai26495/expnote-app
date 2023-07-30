@@ -1,8 +1,10 @@
 const express = require("express")
 const router = express.Router()
+const connection = require('../../app/db')
+
 
 router.get("/",(req, res)=>{
-    res.send("Hello users")
+    res.redirect("./")
 })
 
 router.route("/username=:username")
@@ -17,6 +19,12 @@ router.route("/username=:username")
 })
 .post((req, res)=>{
     res.send(`User Post: ${req.params.username}`)
+})
+
+router.post("/add_new", (req, res)=>{
+    const new_user = request.body
+    console.log(new_user)
+    res.status(201)
 })
 
 module.exports = router
